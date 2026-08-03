@@ -1,0 +1,206 @@
+/* ---------------------------------------------------------------
+   Shared styling for every page.
+--------------------------------------------------------------- */
+
+:root {
+  --bg: #000000;
+  --ink: #d9d6d1;         /* pastel light gray */
+  --ink-dim: #6f6c68;
+  --accent: #e8dfd2;
+
+  --body-font: Arial, Helvetica, sans-serif;
+  --display-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Keep the page from flashing unstyled text before GSAP splits it. */
+.js-loading .reveal {
+  visibility: hidden;
+}
+
+/* --- scroll hint ------------------------------------------------ */
+
+.hint {
+  position: fixed;
+  inset: auto 0 2.5rem 0;
+  text-align: center;
+  font-size: clamp(0.62rem, 1vw, 0.75rem);
+  text-indent: 0.42em;
+  color: var(--ink-dim);
+  pointer-events: none;
+}
+
+/* --- sections --------------------------------------------------- */
+
+.intro {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 12vh 6vw;
+  text-align: center;
+}
+
+.intro .title {
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 8vw, 5.5rem);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.beat {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 28vh 18vw;
+}
+
+.beat p {
+  margin: 0;
+  max-width: 40ch;
+  font-family: var(--body-font);
+  line-height: 1.12;
+  text-align: center;
+}
+
+.middlebody {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  place-items: center;
+  text-align: center;
+  display: grid;
+}
+
+/* SplitText masks each line, so lines slide up out of nothing. */
+.reveal .split-line {
+  will-change: transform;
+}
+
+/* --- code gate -------------------------------------------------- */
+
+.gate {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 12vh 8vw;
+  text-align: center;
+}
+
+.gate label {
+  font-size: clamp(0.62rem, 1vw, 0.75rem);
+  letter-spacing: 0.12em;
+  text-indent: 0.42em;
+  color: var(--ink-dim);
+}
+
+.gate input {
+  width: min(22rem, 80vw);
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #2b2b2b;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  letter-spacing: 0.14em;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.4s ease;
+}
+
+.gate input::placeholder {
+  color: #3a3a3a;
+  letter-spacing: 0.14em;
+}
+
+.gate input:focus {
+  border-bottom-color: #4a4a4a;
+}
+
+.gate.is-valid input {
+  border-bottom-color: var(--accent);
+}
+
+.gate button {
+  background: none;
+  border: 0;
+  padding: 0.35rem 0.5rem;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: clamp(0.72rem, 1.3vw, 0.9rem);
+  letter-spacing: 0.14em;
+  text-indent: 0.34em;
+  cursor: pointer;
+
+  /* hidden until the typed text is a real code */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.4rem);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+}
+
+.gate.is-valid button {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* --- story pages ------------------------------------------------ */
+
+.story {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 18vh 8vw;
+}
+
+.story p {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  margin: 0 0 1.6em;
+}
+
+/* ---------------------------------------------------------------
+   Codes. Any bolded word anywhere on the site is a code the reader
+   can type into the gate, so it gets marked the same way whether
+   it shows up in an intro beat or in the middle of a story.
+--------------------------------------------------------------- */
+
+b,
+strong {
+  font-family: var(--display-font);
+  font-weight: bold;
+  color: var(--accent);
+  border-bottom: 1px solid #333;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

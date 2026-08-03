@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anachronism — attention</title>
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <!-- Template for a subpage. Copy this file for each new one. -->
+
+    <section class="intro">
+      <h1 class="title reveal">attention</h1>
+    </section>
+
+    <article class="story">
+      <p class="reveal">
+        Placeholder story text. Anything <b>bolded</b> in here is a code the
+        reader can type into the box at the bottom.
+      </p>
+      <p class="reveal">
+        Add the code and the page it leads to in <b>codes.js</b>, then keep
+        writing.
+      </p>
+    </article>
+
+    <section class="gate" data-code-gate data-code-base="../">
+      <label for="code">enter a code</label>
+      <input
+        id="code"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="&nbsp;"
+        data-code-input
+      />
+      <button type="submit" data-code-submit>are you sure?</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="../reveal.js"></script>
+    <script src="../codes.js"></script>
+  </body>
+</html>

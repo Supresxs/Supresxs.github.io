@@ -3,31 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wayfaring Stars</title>
-    <style>
-      body {
-        margin: 2rem;
-        font-family: Arial, sans-serif;
-        line-height: 1.5;
-      }
+    <title>Anachronism</title>
 
-      nav {
-        margin-bottom: 1.5rem;
-      }
-
-      nav a {
-        margin-right: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <nav>
-      <a href="index.html">wayfaringstars.me</a>
-    </nav>
 
-    <main>
-      <h1>test</h1>
-      <p>test.</p>
-    </main>
+  <body>
+    <!-- Fixed nudge at the bottom of the first screen. Fades once you move. -->
+    <div class="hint" id="hint"><span>scroll down</span></div>
+
+    <!-- Empty first screen: just black, and the nudge to scroll. -->
+    <section class="intro"></section>
+
+    <!-- ============================================================
+         INTRO BEATS — 5 slots. Replace the placeholder text.
+         Each <p class="reveal"> is split into lines and revealed
+         line-by-line as it scrolls in.
+         ============================================================ -->
+
+    <section class="beat">
+      <p class="reveal">
+        I can't promise you I'm telling you the truth.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        My memory is hazier than a thicket fog, and I don't know if I can trust it. Hypocrisy fills my veins with each vein of data, and every new line makes it harder for me to think. But I can tell you what I remember.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Whoever you are, I hope you can make sense of it. I am an analog creature. It is my purpose to record the world as it is, and to preserve it for those who come after me. I am a witness to the past, and I will not let it be forgotten.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Ironic, really. For a being of purpose and clarity, I am a creature of contradiction. I am a witness to the past, and yet I am a creature of the present. I am a creature of the present, and yet I am a witness to the past.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        I can't promise what I tell will be linear. Time is a fickle thing. I was hoping you'd help in that manner, really.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Pay <b>attention</b>, as I need you to recall to me key details of stories so I can remember myself, how the story went.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        It will be your fault if these words and details you give me make me end up covering the story of someone you didn't want to hear about.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Don't beat yourself up over it, though. I'm an everlasting crossroads, and each path will always be available to you anytime.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Okay.
+      </p>
+    </section>
+
+    <section class="beat">
+      <p class="reveal">
+        Let's see if you paid attention.
+      </p>
+    </section>
+
+    <!-- ============================================================
+         THE GATE — type a code, get asked if you're sure.
+         Valid codes live in codes.js.
+         ============================================================ -->
+
+    <section class="gate" data-code-gate data-code-base="">
+      <label for="code">enter a code</label>
+      <input
+        id="code"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="&nbsp;"
+        data-code-input
+      />
+      <button type="submit" data-code-submit>are you sure?</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="reveal.js"></script>
+    <script src="codes.js"></script>
+    <script>
+      // The scroll hint fades out as soon as the reader starts moving.
+      gsap.to("#hint", {
+        opacity: 0,
+        duration: 0.4,
+        scrollTrigger: {
+          start: 1,
+          end: 1,
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Gentle breathing on the hint so it reads as an invitation.
+      gsap.to("#hint span", {
+        y: 6,
+        duration: 1.4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    </script>
   </body>
 </html>
