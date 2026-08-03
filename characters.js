@@ -44,7 +44,7 @@ const POSITIONS = {
    of the page to travel across, so the positions stay distinct no
    matter how wide the window is. Raise it for longer lines, lower it
    for more dramatic movement. */
-const DIALOGUE_WIDTH = "75ch";
+const DIALOGUE_WIDTH = "85ch";
 const DIALOGUE_MAX_SHARE = "95%";
 
 /* ---------------------------------------------------------------
