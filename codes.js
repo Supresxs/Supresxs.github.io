@@ -15,7 +15,7 @@
 
 const STORY_CODES = {
   attention: "pages/attention.html",
-  introduction: "index.html",
+  anachronism: "index.html",
 };
 
 /* ---------------------------------------------------------------
