@@ -78,7 +78,7 @@ const DIALOGUE_MAX_SHARE = "95%";
 .story .who-name {
   margin: 0 0 0.2em;
   font-size: clamp(0.62rem, 1vw, 0.75rem);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.11em;
   opacity: 0.55;
 }`);
 
