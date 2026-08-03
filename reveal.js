@@ -12,6 +12,10 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 document.documentElement.classList.add("js-loading");
 
 function initReveals() {
+  // Speaker labels become real elements first, so they get split and
+  // revealed along with the dialogue.
+  if (typeof applySpeakerNames === "function") applySpeakerNames();
+
   document.querySelectorAll(".reveal").forEach((el) => {
     SplitText.create(el, {
       type: "lines",

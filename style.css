@@ -74,7 +74,7 @@ body {
 
 .beat p {
   margin: 0;
-  max-width: 40ch;
+  max-width: 70ch;
   font-family: var(--body-font);
   line-height: 1.12;
   text-align: center;
@@ -173,15 +173,15 @@ body {
 /* --- story pages ------------------------------------------------ */
 
 .story {
-  max-width: 44rem;
+  max-width: 104rem;
   margin: 0 auto;
   padding: 18vh 8vw;
 }
 
 .story p {
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-  line-height: 1.6;
-  margin: 0 0 1.6em;
+  line-height: 1.8;
+  margin: 0 0 0.6em;
 }
 
 /* ---------------------------------------------------------------
