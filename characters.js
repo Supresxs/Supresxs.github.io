@@ -45,7 +45,7 @@ const POSITIONS = {
    matter how wide the window is. Raise it for longer lines, lower it
    for more dramatic movement. */
 const DIALOGUE_WIDTH = "75ch";
-const DIALOGUE_MAX_SHARE = "67%";
+const DIALOGUE_MAX_SHARE = "95%";
 
 /* ---------------------------------------------------------------
    Below here is the machinery. You shouldn't need to touch it.
