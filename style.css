@@ -175,12 +175,14 @@ body {
 .story {
   max-width: 104rem;
   margin: 0 auto;
-  padding: 18vh 8vw;
+  /* Narrow side padding: this is the track the dialogue slides along,
+     so the wider it is, the more the positions can spread out. */
+  padding: 18vh 4vw;
 }
 
 .story p {
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-  line-height: 1.8;
+  line-height: 1.4;
   margin: 0 0 0.6em;
 }
 

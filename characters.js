@@ -34,9 +34,18 @@ const POSITIONS = {
   hardright: 1,
 };
 
-/* How wide a block of dialogue is allowed to get. Narrower than the
-   page, so there's room for it to actually move around. */
-const DIALOGUE_WIDTH = "68ch";
+/* How wide a block of dialogue is allowed to get.
+
+   DIALOGUE_WIDTH is the width you'd like it to be.
+   DIALOGUE_MAX_SHARE is the most of the page it may ever take up.
+
+   The share is the important one: whatever is left over is the space
+   the text has to slide around in. At 60%, a block always keeps 40%
+   of the page to travel across, so the positions stay distinct no
+   matter how wide the window is. Raise it for longer lines, lower it
+   for more dramatic movement. */
+const DIALOGUE_WIDTH = "75ch";
+const DIALOGUE_MAX_SHARE = "67%";
 
 /* ---------------------------------------------------------------
    Below here is the machinery. You shouldn't need to touch it.
@@ -69,19 +78,24 @@ const DIALOGUE_WIDTH = "68ch";
 .story .who-name {
   margin: 0 0 0.2em;
   font-size: clamp(0.62rem, 1vw, 0.75rem);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.18em;
   opacity: 0.55;
 }`);
 
   // --- positioning ---
-  // A block is given a fixed width, so the free space beside it is
+  // A block is given a known width, so the free space beside it is
   // (100% - width) and we can slide it along that space with --pos.
+  //
+  // --col is capped at a share of the page, which guarantees that
+  // free space actually exists. If a block were allowed to fill the
+  // whole column, (100% - width) would be zero and every position
+  // would collapse into the same spot.
   css.push(`
 [data-at][data-at] {
   --pos: 0.5;
-  --col: ${DIALOGUE_WIDTH};
-  width: min(var(--col), 100%);
-  margin-inline-start: calc(var(--pos) * (100% - min(var(--col), 100%)));
+  --col: min(${DIALOGUE_WIDTH}, ${DIALOGUE_MAX_SHARE});
+  width: var(--col);
+  margin-inline-start: calc(var(--pos) * (100% - var(--col)));
   margin-inline-end: 0;
 }`);
 
